@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="QuickPaste.Net.Controls.TrayPopupControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:QuickPaste.Net.Controls"
+             xmlns:mocks="clr-namespace:QuickPaste.Net.Mocks"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+             xmlns:MahApps="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             mc:Ignorable="d" 
+             MinHeight="50" Width="200">
+    <UserControl.Resources>
+        <mocks:MockTrayViewModel x:Key="mockViewModel"/>
+    </UserControl.Resources>
+    <Grid Background="{DynamicResource ControlBackgroundBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Quick Tray" FontWeight="Bold" FontSize="14"/>
+        <ListView Grid.Row="1" d:DataContext="{StaticResource mockViewModel}"
+                  ItemsSource="{Binding PasteItems}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}, Path=DataContext.ItemClickCommand}" CommandParameter="{Binding}"/>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Column="0" Content="{Binding Name}"/>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</UserControl>

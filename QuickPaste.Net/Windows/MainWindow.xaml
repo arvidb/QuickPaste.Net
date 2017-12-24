@@ -1,0 +1,36 @@
+﻿<Window x:Class="QuickPaste.Net.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:tb="http://www.hardcodet.net/taskbar"
+        xmlns:local="clr-namespace:QuickPaste.Net"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:vm="clr-namespace:QuickPaste.Net.ViewModels"
+        xmlns:ctrls="clr-namespace:QuickPaste.Net.Controls"
+        mc:Ignorable="d"
+        Visibility="Hidden"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.DataContext>
+        <vm:MainViewModel/>
+    </Window.DataContext>
+    <Grid>
+        <tb:TaskbarIcon
+            Name="tbIcon"
+                  IconSource="/QuickPaste.Net;component/Resources/TrayIcon.ico"
+                  ToolTipText="hello world" NoLeftClickDelay="True" TrayPopupOpen="tbIcon_TrayPopupOpen">
+            <tb:TaskbarIcon.TrayPopup>
+                <ctrls:TrayPopupControl x:Name="popupCtrl" DataContextChanged="TrayPopupControl_DataContextChanged" >
+                    <ctrls:TrayPopupControl.DataContext>
+                        <vm:TrayPopupViewModel/>
+                    </ctrls:TrayPopupControl.DataContext>
+                </ctrls:TrayPopupControl>
+            </tb:TaskbarIcon.TrayPopup>
+            <tb:TaskbarIcon.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Properties" Command="{Binding OpenPropertiesCommand}"/>
+                </ContextMenu>
+            </tb:TaskbarIcon.ContextMenu>
+        </tb:TaskbarIcon>
+    </Grid>
+</Window>
