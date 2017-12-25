@@ -8,6 +8,6 @@ A simple tray utility with easy access copyable items
 * WPF NotifyIcon
 
 # Patterns & Practices
-* Model View View Model (MVVM)
+* Model View Viewmodel (MVVM)
 * Repository Pattern
 * Dependency Injection
