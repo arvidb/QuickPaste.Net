@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace QuickPaste.Net.Mocks
 {
-    public class MockTrayViewModel
+    public class DesignTrayViewModel
     {
         public IEnumerable<PasteItem> PasteItems => new List<PasteItem>()
         {

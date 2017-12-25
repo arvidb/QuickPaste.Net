@@ -16,7 +16,7 @@
         WindowTransitionsEnabled="False"
         Title="QuickPaste.Net" MinHeight="300" MinWidth="400" Width="400" Height="350">
     <MahApps:MetroWindow.Resources>
-        <mocks:MockTrayViewModel x:Key="mockViewModel"/>
+        <mocks:DesignTrayViewModel x:Key="DesignTrayViewModel"/>
     </MahApps:MetroWindow.Resources>
     <Grid Margin="5">
         <Grid.ColumnDefinitions>
@@ -33,7 +33,7 @@
         <TextBox Grid.Column="0" MahApps:TextBoxHelper.Watermark="Display Name" DataContext="{Binding NewTask}" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBox Grid.Column="1" MahApps:TextBoxHelper.Watermark="Value" DataContext="{Binding NewTask}" Text="{Binding Value, UpdateSourceTrigger=PropertyChanged}"/>
         <Button Content="Add" Grid.Column="2" Width="50" Command="{Binding AddItemCommand}"/>
-        <ListView Grid.Row="1" Margin="0,5,0,0" d:DataContext="{StaticResource mockViewModel}"
+        <ListView Grid.Row="1" Margin="0,5,0,0" d:DataContext="{StaticResource DesignTrayViewModel}"
                   ItemsSource="{Binding PasteItems}" Grid.ColumnSpan="3">
             <ListView.ItemTemplate>
                 <DataTemplate>

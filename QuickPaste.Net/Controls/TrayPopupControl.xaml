@@ -10,7 +10,7 @@
              mc:Ignorable="d" 
              MinHeight="50" Width="200">
     <UserControl.Resources>
-        <mocks:MockTrayViewModel x:Key="mockViewModel"/>
+        <mocks:DesignTrayViewModel x:Key="DesignTrayViewModel"/>
     </UserControl.Resources>
     <Grid Background="{DynamicResource ControlBackgroundBrush}">
         <Grid.RowDefinitions>
@@ -18,7 +18,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Label Content="QuickPaste.Net" FontWeight="Bold" FontSize="14"/>
-        <ListView Grid.Row="1" d:DataContext="{StaticResource mockViewModel}"
+        <ListView Grid.Row="1" d:DataContext="{StaticResource DesignTrayViewModel}"
                   ItemsSource="{Binding PasteItems}">
             <ListView.ItemTemplate>
                 <DataTemplate>
