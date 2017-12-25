@@ -5,7 +5,7 @@ A simple tray utility with easy access copyable items
 * Autofac
 * NLog
 * MahApps
-* WPF NotifyIcon (Hardcodet)
+* WPF NotifyIcon
 
 # Patterns & Practices
 * Model View View Model (MVVM)
