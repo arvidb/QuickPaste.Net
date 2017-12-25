@@ -17,7 +17,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Label Content="Quick Tray" FontWeight="Bold" FontSize="14"/>
+        <Label Content="QuickPaste.Net" FontWeight="Bold" FontSize="14"/>
         <ListView Grid.Row="1" d:DataContext="{StaticResource mockViewModel}"
                   ItemsSource="{Binding PasteItems}">
             <ListView.ItemTemplate>

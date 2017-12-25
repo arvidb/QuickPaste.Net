@@ -18,7 +18,7 @@
         <tb:TaskbarIcon
             Name="tbIcon"
                   IconSource="/QuickPaste.Net;component/Resources/TrayIcon.ico"
-                  ToolTipText="hello world" NoLeftClickDelay="True" TrayPopupOpen="tbIcon_TrayPopupOpen">
+                  NoLeftClickDelay="True" TrayPopupOpen="tbIcon_TrayPopupOpen">
             <tb:TaskbarIcon.TrayPopup>
                 <ctrls:TrayPopupControl x:Name="popupCtrl" DataContextChanged="TrayPopupControl_DataContextChanged" >
                     <ctrls:TrayPopupControl.DataContext>
@@ -29,6 +29,7 @@
             <tb:TaskbarIcon.ContextMenu>
                 <ContextMenu>
                     <MenuItem Header="Properties" Command="{Binding OpenPropertiesCommand}"/>
+                    <MenuItem Header="Exit" Click="MenuExit_Click"/>
                 </ContextMenu>
             </tb:TaskbarIcon.ContextMenu>
         </tb:TaskbarIcon>

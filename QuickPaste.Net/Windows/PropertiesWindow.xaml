@@ -9,9 +9,12 @@
         mc:Ignorable="d"
         Name="propertiesWindow"
         Topmost="True"
+        BorderBrush="{DynamicResource AccentColorBrush}"
+        BorderThickness="1"
+        ShowMinButton="False" ShowMaxRestoreButton="False"
         WindowStartupLocation="CenterScreen"
         WindowTransitionsEnabled="False"
-        Title="QuickPaste.Net" Height="300" Width="300">
+        Title="QuickPaste.Net" MinHeight="300" MinWidth="400" Width="400" Height="350">
     <MahApps:MetroWindow.Resources>
         <mocks:MockTrayViewModel x:Key="mockViewModel"/>
     </MahApps:MetroWindow.Resources>
@@ -19,7 +22,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
@@ -27,7 +30,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBox Grid.Column="0" MahApps:TextBoxHelper.Watermark="Name" DataContext="{Binding NewTask}" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+        <TextBox Grid.Column="0" MahApps:TextBoxHelper.Watermark="Display Name" DataContext="{Binding NewTask}" Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
         <TextBox Grid.Column="1" MahApps:TextBoxHelper.Watermark="Value" DataContext="{Binding NewTask}" Text="{Binding Value, UpdateSourceTrigger=PropertyChanged}"/>
         <Button Content="Add" Grid.Column="2" Width="50" Command="{Binding AddItemCommand}"/>
         <ListView Grid.Row="1" Margin="0,5,0,0" d:DataContext="{StaticResource mockViewModel}"
@@ -37,21 +40,23 @@
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <Label Grid.Column="0" Content="{Binding Name}"/>
-                        <Button Grid.Column="1" Width="25" Height="25"
+                        <Label Grid.Column="1" Content="{Binding Value}"/>
+                        <Button Grid.Column="2" Width="25" Height="25" Margin="0,0,5,0"
                                 Command="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=DataContext.RemoveItemCommand}" CommandParameter="{Binding}"
                                 Style="{DynamicResource MetroCircleButtonStyle}"
                                 Background="Red">
-                            <TextBlock Text="X"/>
+                            <TextBlock Text="X" FontSize="10" FontWeight="Black"/>
                         </Button>
                     </Grid>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
         <StackPanel Grid.Row="2" HorizontalAlignment="Right" Margin="0,5,5,5" Grid.Column="1" Grid.ColumnSpan="2">
-            <Button Content="Ok" Width="100" 
+            <Button Content="Ok" Width="100"
                     Command="{Binding CloseWindowCommand}" 
                     CommandParameter="{Binding ElementName=propertiesWindow}"/>
         </StackPanel>

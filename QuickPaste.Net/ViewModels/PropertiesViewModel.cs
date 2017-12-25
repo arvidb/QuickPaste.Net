@@ -51,6 +51,9 @@ namespace QuickPaste.Net.ViewModels
         {
             _taskService.AddItem(NewTask);
 
+            NewTask = new PasteItem();
+            RaisePropertyChanged(() => NewTask);
+
             RaisePropertyChanged(() => PasteItems);
         }
     }
