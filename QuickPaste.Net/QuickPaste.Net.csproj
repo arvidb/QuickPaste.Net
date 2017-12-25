@@ -109,6 +109,7 @@
     <Compile Include="Helpers\IObservableObject.cs" />
     <Compile Include="Helpers\ObservableObject.cs" />
     <Compile Include="Helpers\RelayCommand.cs" />
+    <Compile Include="ViewModelLocator.cs" />
     <Compile Include="ViewModels\Design\DesignTrayViewModel.cs" />
     <Compile Include="Models\PasteItem.cs" />
     <Compile Include="Services\IPasteItemService.cs" />

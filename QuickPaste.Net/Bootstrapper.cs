@@ -40,8 +40,13 @@ namespace QuickPaste.Net
 
                 var builder = new ContainerBuilder();
 
+                // Services
                 builder.RegisterType<PasteItemService>().As<IPasteItemService>().SingleInstance();
+
+                // View models
                 builder.RegisterType<PropertiesViewModel>();
+                builder.RegisterType<MainViewModel>();
+                builder.RegisterType<TrayPopupViewModel>();
 
                 _rootScope = builder.Build();
             }

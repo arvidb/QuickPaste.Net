@@ -20,10 +20,7 @@ namespace QuickPaste.Net.ViewModels
 
         private void OpenProperties()
         {
-            var win = new PropertiesWindow
-            {
-                DataContext = Bootstrapper.Resolve<PropertiesViewModel>()
-            };
+            var win = new PropertiesWindow();
             win.ShowDialog();
         }
     }

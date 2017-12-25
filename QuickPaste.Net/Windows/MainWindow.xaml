@@ -10,20 +10,16 @@
         xmlns:ctrls="clr-namespace:QuickPaste.Net.Controls"
         mc:Ignorable="d"
         Visibility="Hidden"
-        Title="MainWindow" Height="350" Width="525">
-    <Window.DataContext>
-        <vm:MainViewModel/>
-    </Window.DataContext>
+        Title="MainWindow" Height="350" Width="525"
+        DataContext="{Binding Path=MainViewModel, Source={StaticResource ViewModelLocator}}">
     <Grid>
         <tb:TaskbarIcon
             Name="tbIcon"
                   IconSource="/QuickPaste.Net;component/Resources/TrayIcon.ico"
                   NoLeftClickDelay="True" TrayPopupOpen="tbIcon_TrayPopupOpen">
             <tb:TaskbarIcon.TrayPopup>
-                <ctrls:TrayPopupControl x:Name="popupCtrl" DataContextChanged="TrayPopupControl_DataContextChanged" >
-                    <ctrls:TrayPopupControl.DataContext>
-                        <vm:TrayPopupViewModel/>
-                    </ctrls:TrayPopupControl.DataContext>
+                <ctrls:TrayPopupControl x:Name="popupCtrl" DataContextChanged="TrayPopupControl_DataContextChanged" 
+                                        DataContext="{Binding Path=TrayPopupViewModel, Source={StaticResource ViewModelLocator}}">
                 </ctrls:TrayPopupControl>
             </tb:TaskbarIcon.TrayPopup>
             <tb:TaskbarIcon.ContextMenu>

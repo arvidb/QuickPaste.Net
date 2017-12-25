@@ -16,6 +16,7 @@
 
                 <ResourceDictionary>
                     <local:Bootstrapper x:Key="Bootstrapper"/>
+                    <local:ViewModelLocator x:Key="ViewModelLocator"/>
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

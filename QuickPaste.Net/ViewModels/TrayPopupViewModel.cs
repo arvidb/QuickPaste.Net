@@ -15,15 +15,17 @@ namespace QuickPaste.Net.ViewModels
     {
         public event EventHandler TrayItemExecuted;
 
-        private IPasteItemService _pasteService => Bootstrapper.Resolve<IPasteItemService>();
+        private readonly IPasteItemService _pasteItemService;
 
         public ICommand ItemClickCommand { get; }
         public ICommand ReloadCommand { get; }
 
-        public IEnumerable<PasteItem> PasteItems => _pasteService.GetItems().ToList();
+        public IEnumerable<PasteItem> PasteItems => _pasteItemService.GetItems().ToList();
 
-        public TrayPopupViewModel()
+        public TrayPopupViewModel(IPasteItemService pasteItemService)
         {
+            _pasteItemService = pasteItemService;
+
             ItemClickCommand = new RelayCommand<PasteItem>(OnItemClicked);
             ReloadCommand = new RelayCommand(Reload);
 
