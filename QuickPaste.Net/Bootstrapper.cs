@@ -40,8 +40,8 @@ namespace QuickPaste.Net
 
                 var builder = new ContainerBuilder();
 
-                // Services
-                builder.RegisterType<PasteItemService>().As<IPasteItemService>().SingleInstance();
+                // Repositories
+                builder.RegisterType<PasteItemRepository>().As<IPasteItemRepository>().SingleInstance();
 
                 // View models
                 builder.RegisterType<PropertiesViewModel>();

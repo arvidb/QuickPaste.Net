@@ -11,11 +11,11 @@ using QuickPaste.Net.Common;
 
 namespace QuickPaste.Net
 {
-    public class PasteItemService : IPasteItemService
+    public class PasteItemRepository : IPasteItemRepository
     {
         private IList<PasteItem> PasteItems { get; } = new List<PasteItem>();
         
-        public PasteItemService()
+        public PasteItemRepository()
         {
             if (File.Exists(Constants.DataStorePath))
             {

@@ -12,21 +12,21 @@ namespace QuickPaste.Net.ViewModels
 {
     public class PropertiesViewModel : ObservableObject
     {
-        private readonly IPasteItemService _pasteItemService;
+        private readonly IPasteItemRepository _pasteItemRepo;
 
         public ICommand CloseWindowCommand { get; }
         public ICommand AddItemCommand { get; }
         public ICommand RemoveItemCommand { get; }
 
-        public IEnumerable<PasteItem> PasteItems => _pasteItemService.GetItems().ToList();
+        public IEnumerable<PasteItem> PasteItems => _pasteItemRepo.GetItems().ToList();
 
         public PasteItem NewTask { get; set; } = new PasteItem();
 
         private bool CanAddTask() => !string.IsNullOrEmpty(NewTask.Name) && !string.IsNullOrEmpty(NewTask.Value);
 
-        public PropertiesViewModel(IPasteItemService pasteItemService)
+        public PropertiesViewModel(IPasteItemRepository pasteItemRepo)
         {
-            _pasteItemService = pasteItemService;
+            _pasteItemRepo = pasteItemRepo;
 
             CloseWindowCommand = new RelayCommand<Window>(CloseWindow);
             AddItemCommand = new RelayCommand(AddTask, CanAddTask);
@@ -37,21 +37,21 @@ namespace QuickPaste.Net.ViewModels
 
         private void RemoveItem(PasteItem obj)
         {
-            _pasteItemService.RemoveItem(obj);
+            _pasteItemRepo.RemoveItem(obj);
 
             RaisePropertyChanged(() => PasteItems);
         }
 
         private void CloseWindow(Window win)
         {
-            _pasteItemService.SaveItems();
+            _pasteItemRepo.SaveItems();
 
             win.Close();
         }
 
         private void AddTask()
         {
-            _pasteItemService.AddItem(NewTask);
+            _pasteItemRepo.AddItem(NewTask);
 
             NewTask = new PasteItem();
             RaisePropertyChanged(() => NewTask);

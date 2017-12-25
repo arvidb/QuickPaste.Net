@@ -112,8 +112,8 @@
     <Compile Include="ViewModelLocator.cs" />
     <Compile Include="ViewModels\Design\DesignTrayViewModel.cs" />
     <Compile Include="Models\PasteItem.cs" />
-    <Compile Include="Services\IPasteItemService.cs" />
-    <Compile Include="Services\PasteItemService.cs" />
+    <Compile Include="Repositories\IPasteItemRepository.cs" />
+    <Compile Include="Repositories\PasteItemRepository.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\PropertiesViewModel.cs" />
     <Compile Include="ViewModels\TrayPopupViewModel.cs" />

@@ -4,7 +4,7 @@ using QuickPaste.Net.ViewModels;
 
 namespace QuickPaste.Net
 {
-    public interface IPasteItemService
+    public interface IPasteItemRepository
     {
         IEnumerable<PasteItem> GetItems();
 
