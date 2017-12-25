@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuickPaste.Net.Mocks
+namespace QuickPaste.Net.ViewModels.Design
 {
     public class DesignTrayViewModel
     {

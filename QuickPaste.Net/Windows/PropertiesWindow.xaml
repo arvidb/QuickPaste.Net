@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QuickPaste.Net.Windows"
-        xmlns:mocks="clr-namespace:QuickPaste.Net.Mocks"
+        xmlns:vmDesign="clr-namespace:QuickPaste.Net.ViewModels.Design"
         xmlns:MahApps="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
         Name="propertiesWindow"
@@ -16,7 +16,7 @@
         WindowTransitionsEnabled="False"
         Title="QuickPaste.Net" MinHeight="300" MinWidth="400" Width="400" Height="350">
     <MahApps:MetroWindow.Resources>
-        <mocks:DesignTrayViewModel x:Key="DesignTrayViewModel"/>
+        <vmDesign:DesignTrayViewModel x:Key="DesignTrayViewModel"/>
     </MahApps:MetroWindow.Resources>
     <Grid Margin="5">
         <Grid.ColumnDefinitions>

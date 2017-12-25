@@ -4,13 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:QuickPaste.Net.Controls"
-             xmlns:mocks="clr-namespace:QuickPaste.Net.Mocks"
+             xmlns:vmDesign="clr-namespace:QuickPaste.Net.ViewModels.Design"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:MahApps="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
              mc:Ignorable="d" 
              MinHeight="50" Width="200">
     <UserControl.Resources>
-        <mocks:DesignTrayViewModel x:Key="DesignTrayViewModel"/>
+        <vmDesign:DesignTrayViewModel x:Key="DesignTrayViewModel"/>
     </UserControl.Resources>
     <Grid Background="{DynamicResource ControlBackgroundBrush}">
         <Grid.RowDefinitions>
