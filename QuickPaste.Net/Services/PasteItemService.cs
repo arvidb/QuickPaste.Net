@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using QuickPaste.Net.Models;
 using QuickPaste.Net.ViewModels;
+using QuickPaste.Net.Common;
 
 namespace QuickPaste.Net
 {
@@ -14,22 +15,20 @@ namespace QuickPaste.Net
     {
         private IList<PasteItem> PasteItems { get; } = new List<PasteItem>();
         
-        private string _dataStorePath => @"data/data.json";
-
         public PasteItemService()
         {
-            if (File.Exists(_dataStorePath))
+            if (File.Exists(Constants.DataStorePath))
             {
-                var storedData = File.ReadAllText(_dataStorePath);
+                var storedData = File.ReadAllText(Constants.DataStorePath);
                 PasteItems = JsonConvert.DeserializeObject<List<PasteItem>>(storedData);
             }
         }
 
         public void SaveItems()
         {
-            (new FileInfo(_dataStorePath)).Directory.Create();
+            (new FileInfo(Constants.DataStorePath)).Directory.Create();
 
-            File.WriteAllText(_dataStorePath, JsonConvert.SerializeObject(PasteItems));
+            File.WriteAllText(Constants.DataStorePath, JsonConvert.SerializeObject(PasteItems));
         }
 
         public IEnumerable<PasteItem> GetItems() => PasteItems;
