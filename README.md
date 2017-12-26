@@ -10,4 +10,4 @@ A simple tray utility with easy access copyable items
 # Patterns & Practices
 * Model View Viewmodel (MVVM)
 * Repository Pattern
-* Dependency Injection
+* Inversion of Control
